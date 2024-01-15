@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const LINK = "http://localhost:5173/";
+const LINK = "https://learn-tdd-in-playwright.vercel.app/";
 
 test.beforeEach(async ({ page }) => {
   await page.goto(LINK);
