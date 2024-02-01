@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AppButton } from "./components/AppButton";
 import { AppInput } from "./components/AppInput";
 import { AppList } from "./components/AppList";
+import { HoverVisible } from "./components/HoverVisible";
 
 export type TTodo = {
   title: string;
@@ -21,9 +22,12 @@ function App() {
   };
   return (
     <>
+      <h3>Fill & Click</h3>
       <AppInput value={value} onChange={handleChange} />
       <AppButton onClick={onClick} />
       <AppList todoList={todoList} />
+
+      <HoverVisible></HoverVisible>
     </>
   );
 }

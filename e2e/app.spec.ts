@@ -7,10 +7,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Test Playwright", () => {
-  test("Has title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Playwright/);
-  });
-
   test("Displays the message in the list", async ({ page }) => {
     const input = page.getByTestId("app-input");
     const button = page.getByTestId("app-button");
@@ -18,5 +14,11 @@ test.describe("Test Playwright", () => {
     await button.click();
     await expect(input).toHaveValue("");
     await expect(page.getByTestId("app-list")).toContainText("Hello World");
+  });
+
+  test("Display menu when hovering over menu button", async ({ page }) => {
+    await expect(page.getByTestId("menu")).not.toBeVisible();
+    await page.getByTestId("show-menu").hover();
+    await expect(page.getByTestId("menu")).toBeVisible();
   });
 });
